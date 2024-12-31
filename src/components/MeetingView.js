@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useMeeting } from "@videosdk.live/react-sdk";
+import "./Common.css";
 
 import Controls from "./Controls";
 import ParticipantView from "./ParticipantView";

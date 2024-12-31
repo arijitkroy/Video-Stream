@@ -1,10 +1,11 @@
 import React from "react";
 import { useMeeting } from "@videosdk.live/react-sdk";
+import "./Common.css";
 
 const Controls = () => {
     const { leave, toggleMic, toggleWebcam, toggleScreenShare } = useMeeting();
         return (
-            <div>
+            <div className="controls">
                 <button onClick={() => leave()}>Leave</button>
                 <button onClick={() => toggleMic()}>Toggle Mic</button>
                 <button onClick={() => toggleWebcam()}>Toggle Webcam</button>

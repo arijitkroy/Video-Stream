@@ -37,7 +37,8 @@ const PresenterView = ({ presenterId }) => {
                 pip={false}
                 light={false}
                 controls={false}
-                muted={false}
+                muted={true}
+                playing={true}
                 url={mediaStream}
                 height={"100%"}
                 width={"100%"}

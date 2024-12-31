@@ -7,6 +7,7 @@ import JoinScreen from "./components/JoinScreen";
 
 function App() {
   const [meetingId, setMeetingId] = useState(null);
+  const [name, setName] = useState("Participant");
   const getMeetingAndToken = async(id) => {
     const meetingId = id == null? await createMeeting({ token: authToken }) : id;
     setMeetingId(meetingId);
@@ -15,12 +16,16 @@ function App() {
     setMeetingId(null);
   }
 
+  const getName = (e) => {
+    setName(e)
+  }
+
   return authToken && meetingId ? (
-    <MeetingProvider config={{ meetingId, micEnabled: true, webcamEnabled: true, name: 'Arijit Kumar Roy'}} token={authToken}>
+    <MeetingProvider config={{ meetingId, micEnabled: true, webcamEnabled: true, name: {name}}} token={authToken}>
       <MeetingView meetingId={meetingId} onMeetingLeave={onMeetingLeave} />
     </MeetingProvider>
   ) : (
-    <JoinScreen getMeetingAndToken={getMeetingAndToken} />
+    <JoinScreen getMeetingAndToken={getMeetingAndToken} getName={getName} />
   )
 }
 
