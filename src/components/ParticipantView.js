@@ -2,7 +2,7 @@ import React, { useRef, useMemo, useEffect } from "react";
 import { useParticipant } from "@videosdk.live/react-sdk";
 import ReactPlayer from "react-player";
 
-const ParticipantView = (participantId) => {
+const ParticipantView = (props) => {
     const micRef = useRef(null);
     
     const onStreamEnabled = (stream) => {
@@ -13,16 +13,16 @@ const ParticipantView = (participantId) => {
         if (stream.kind == "share") console.log("Share Stream Off: onStreamDisabled", stream);
     }
 
-    const { webcamStream, micStream, webcamOn, micOn, isLocal, displayName } = useParticipant(participantId, {
+    const { webcamStream, micStream, webcamOn, micOn, isLocal, displayName } = useParticipant(props.participantId, {
         onStreamEnabled,
         onStreamDisabled
     });
 
     const videoStream = useMemo(() => {
         if (webcamOn && webcamStream) {
-        const mediaStream = new MediaStream();
-        mediaStream.addTrack(webcamStream.track);
-        return mediaStream;
+            const mediaStream = new MediaStream();
+            mediaStream.addTrack(webcamStream.track);
+            return mediaStream;
         }
     }, [webcamOn, webcamStream]);
 
@@ -54,8 +54,8 @@ const ParticipantView = (participantId) => {
                 pip={false} 
                 light={false} 
                 controls={false} 
-                muted={false} 
-                playing={false} 
+                muted={true} 
+                playing={true} 
                 url={videoStream} 
                 height={"300px"} 
                 width={"300px"} 

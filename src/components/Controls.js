@@ -6,9 +6,9 @@ const Controls = () => {
         return (
             <div>
                 <button onClick={() => leave()}>Leave</button>
-                <button onClick={() => toggleMic}>Toggle Mic</button>
-                <button onClick={() => toggleWebcam}>Toggle Webcam</button>
-                <button onClick={() => toggleScreenShare}>Screen Share</button>
+                <button onClick={() => toggleMic()}>Toggle Mic</button>
+                <button onClick={() => toggleWebcam()}>Toggle Webcam</button>
+                <button onClick={() => toggleScreenShare()}>Screen Share</button>
             </div>
     )
 }

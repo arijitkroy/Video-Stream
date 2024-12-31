@@ -32,11 +32,9 @@ const MeetingView = (props) => {
                 {joined && joined == "JOINED" ? (
                     <div>
                         <Controls/>
-                        {[...participants.keys()].map((participantId) => {
-                            
+                        {[...participants.keys()].map((participantId) => (
                             <ParticipantView participantId={participantId} key={participantId} />
-                            
-                        })}
+                        ))}
                     </div>
                 ) : joined && joined == "JOINING" ? (
                     <p>Joining the meeting...</p>
