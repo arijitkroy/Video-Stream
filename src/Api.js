@@ -1,4 +1,4 @@
-export const authToken = process.env.API_TOKEN;
+export const authToken = process.env.REACT_APP_API_TOKEN;
 export const createMeeting = async({ token }) => {
     const res = await fetch('https://api.videosdk.live/v2/rooms', {
         method: 'POST',
