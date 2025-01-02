@@ -6,7 +6,7 @@ const JoinScreen = ({ getMeetingAndToken, getName }) => {
     const [name, setName] = useState("Participant");
     const onClick = async() => {
         await getMeetingAndToken(meetingId);
-        await getName(name); // Configure the naming logic
+        // await getName(name); // Configure the naming logic
     }
     return (
         <div className="welcome-container">

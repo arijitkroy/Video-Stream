@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MeetingProvider } from "@videosdk.live/react-sdk";
 import { authToken, createMeeting } from "./Api";
+import { Analytics } from "@vercel/analytics/react";
 
 import MeetingView from "./components/MeetingView";
 import JoinScreen from "./components/JoinScreen";
